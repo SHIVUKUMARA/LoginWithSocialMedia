@@ -16,7 +16,7 @@ const FacebookStrategy = require("passport-facebook").Strategy;
 const OAuth2Strategy = require("passport-google-oauth2").Strategy;
 const userdb = require("./model/userSchema");
 
-const clientid = process.env.CLIENT_ID_GOOGLE || "502892102344-9tr5lu3ks2bdnodg78beegfjq1941i42.apps.googleusercontent.com"; // Your Google Client ID
+const clientid = process.env.CLIENT_ID_GOOGLE; // Your Google Client ID
 const clientsecret = process.env.CLIENT_SECRET_GOOGLE; // Your Google Client Secret
 
 const facebookClientId = process.env.CLIENT_ID_FACEBOOK; // Your Facebook Client ID
