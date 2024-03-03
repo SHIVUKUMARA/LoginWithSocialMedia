@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path");
 
+
 require("./db/config");
 const PORT = process.env.PORT || 8000;
 
@@ -18,11 +19,11 @@ const FacebookStrategy = require("passport-facebook").Strategy;
 const OAuth2Strategy = require("passport-google-oauth2").Strategy;
 const userdb = require("./model/userSchema");
 
-const clientid = "502892102344-9tr5lu3ks2bdnodg78beegfjq1941i42.apps.googleusercontent.com"; // Your Google Client ID
-const clientsecret = "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"; // Your Google Client Secret
+const clientid = process.env.CLIENT_ID_GOOGLE; // Your Google Client ID
+const clientsecret = process.env.CLIENT_SECRET_GOOGLE; // Your Google Client Secret
 
-const facebookClientId = "1145308763127342"; // Your Facebook Client ID
-const facebookClientSecret = "ef436b64a50145d57ff4ecb99f97091c"; // Your Facebook Client Secret
+const facebookClientId = process.env.CLIENT_ID_FACEBOOK; // Your Facebook Client ID
+const facebookClientSecret = process.env.CLIENT_SECRET_FACEBOOK; // Your Facebook Client Secret
 
 app.use(
   cors({
@@ -183,6 +184,7 @@ app.get("/logout", (req, res, next) => {
 
 // static files access
 app.use(express.static(path.join(__dirname, "./client/build")));
+
 
 // call all files
 app.get("*", function (req, res) {
