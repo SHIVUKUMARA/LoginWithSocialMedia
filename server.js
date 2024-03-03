@@ -9,10 +9,6 @@ const path = require("path");
 require("./db/config");
 const PORT = process.env.PORT || 8000;
 
-// middleware
-app.use(cors());
-app.use(express.json());
-
 const session = require("express-session");
 const passport = require("passport");
 const FacebookStrategy = require("passport-facebook").Strategy;
