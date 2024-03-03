@@ -9,6 +9,7 @@ const path = require("path");
 require("./db/config");
 const PORT = process.env.PORT || 8000;
 
+
 const session = require("express-session");
 const passport = require("passport");
 const FacebookStrategy = require("passport-facebook").Strategy;
@@ -23,7 +24,7 @@ const facebookClientSecret = process.env.CLIENT_SECRET_FACEBOOK; // Your Faceboo
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.FRONT_PORT,
     methods: "GET, PUT, POST, DELETE",
     credentials: true,
   })
@@ -91,8 +92,8 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/dashboard",
-    failureRedirect: "http://localhost:3000/login",
+    successRedirect: process.env.FRONT_PORT + "/dashboard",
+    failureRedirect: process.env.FRONT_PORT + "/login",
   })
 );
 
@@ -150,8 +151,8 @@ app.get(
 app.get(
   "/auth/facebook/callback",
   passport.authenticate("facebook", {
-    successRedirect: "http://localhost:3000/dashboard",
-    failureRedirect: "http://localhost:3000/login",
+    successRedirect: process.env.FRONT_PORT + "/dashboard",
+    failureRedirect: process.env.FRONT_PORT + "/login",
   })
 );
 
@@ -173,8 +174,8 @@ app.get("/logout", (req, res, next) => {
   req.logout(function (err) {
     if (err) {
       return next(err);
-    }
-    res.redirect("http://localhost:3000");
+    } 
+    res.redirect(process.env.FRONT_PORT || 10000);
   });
 });
 
