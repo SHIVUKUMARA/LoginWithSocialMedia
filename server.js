@@ -175,7 +175,7 @@ app.get("/logout", (req, res, next) => {
     if (err) {
       return next(err);
     } 
-    res.redirect(https://stunning-fox-73b7a5.netlify.app/);
+    res.redirect("https://stunning-fox-73b7a5.netlify.app/");
   });
 });
 
