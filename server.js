@@ -24,7 +24,7 @@ const facebookClientSecret = process.env.CLIENT_SECRET_FACEBOOK; // Your Faceboo
 
 app.use(
   cors({
-    origin: process.env.FRONT_PORT,
+    origin: https://stunning-fox-73b7a5.netlify.app/,
     methods: "GET, PUT, POST, DELETE",
     credentials: true,
   })
@@ -50,7 +50,7 @@ passport.use(
     {
       clientID: clientid,
       clientSecret: clientsecret,
-      callbackURL: "/auth/google/callback",
+      callbackURL: "https://stunning-fox-73b7a5.netlify.app/auth/google/callback",
       scope: ["profile", "email"],
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -92,8 +92,8 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: process.env.FRONT_PORT + "/dashboard",
-    failureRedirect: process.env.FRONT_PORT + "/login",
+    successRedirect: "https://stunning-fox-73b7a5.netlify.app/dashboard",
+    failureRedirect: "https://stunning-fox-73b7a5.netlify.app/login",
   })
 );
 
@@ -119,7 +119,7 @@ passport.use(
     {
       clientID: facebookClientId,
       clientSecret: facebookClientSecret,
-      callbackURL: "/auth/facebook/callback",
+      callbackURL: "https://stunning-fox-73b7a5.netlify.app/auth/facebook/callback",
       profileFields: ["id", "displayName", "email", "photos"],
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -151,8 +151,8 @@ app.get(
 app.get(
   "/auth/facebook/callback",
   passport.authenticate("facebook", {
-    successRedirect: process.env.FRONT_PORT + "/dashboard",
-    failureRedirect: process.env.FRONT_PORT + "/login",
+    successRedirect: "https://stunning-fox-73b7a5.netlify.app/dashboard",
+    failureRedirect: "https://stunning-fox-73b7a5.netlify.app/login",
   })
 );
 
@@ -175,7 +175,7 @@ app.get("/logout", (req, res, next) => {
     if (err) {
       return next(err);
     } 
-    res.redirect(process.env.FRONT_PORT || 10000);
+    res.redirect(https://stunning-fox-73b7a5.netlify.app/);
   });
 });
 
