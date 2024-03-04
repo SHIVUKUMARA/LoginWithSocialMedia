@@ -24,7 +24,7 @@ const facebookClientSecret = process.env.CLIENT_SECRET_FACEBOOK; // Your Faceboo
 
 app.use(
   cors({
-    origin: https://stunning-fox-73b7a5.netlify.app/,
+    origin: "https://stunning-fox-73b7a5.netlify.app/",
     methods: "GET, PUT, POST, DELETE",
     credentials: true,
   })
