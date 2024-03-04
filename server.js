@@ -7,7 +7,7 @@ const path = require("path");
 
 
 require("./db/config");
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 10000;
 
 
 const session = require("express-session");
