@@ -179,14 +179,14 @@ app.get("/logout", (req, res, next) => {
   });
 });
 
-// // static files access
-// app.use(express.static(path.join(__dirname, "./client/build")));
+// static files access
+app.use(express.static(path.join(__dirname, "./client/build")));
 
 
-// // call all files
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+// call all files
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`server Running at Port No ${PORT}`);
